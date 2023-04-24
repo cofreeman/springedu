@@ -1,4 +1,4 @@
-package com.example.springedu.thymeleaf.exam;
+package thymeleaf.exam;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

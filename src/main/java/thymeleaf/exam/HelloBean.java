@@ -1,4 +1,4 @@
-package com.example.springedu.thymeleaf.exam;
+package thymeleaf.exam;
 
 import org.springframework.stereotype.Component;
 
