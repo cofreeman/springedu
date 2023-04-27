@@ -17,7 +17,7 @@ public class UploadController4 {
 	     String result="OK";
 	     try {
 	    	 content =  mfile.getBytes();
-	    	 File f = new File("c:/uploadtest/"+fileName);
+	    	 File f = new File("com/example/springedu/c:/uploadtest/" +fileName);
 	   		 FileOutputStream fos = new FileOutputStream(f);
 	   		 fos.write(content);
 	   		 fos.close();	   		 
