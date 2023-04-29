@@ -1,5 +1,6 @@
 package com.example.springedu.controller;
 
+import com.example.springedu.dao.BookMapperDAO;
 import com.example.springedu.dao.BookMybatisDAO;
 import com.example.springedu.domain.BookDTO;
 import java.util.List;
@@ -9,13 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BookController {
 
     @Autowired
-    BookMybatisDAO dao;
+    BookMapperDAO dao;
 
     @GetMapping("/book")
     public String getForm() {
@@ -23,7 +25,8 @@ public class BookController {
     }
 
     @GetMapping("/bookinfo/{b}")
-    public String get(Model model, @PathVariable("b") String b,@RequestParam(value = "name", required = false) String name ) {
+    public String get(Model model, @PathVariable("b") String b,
+        @RequestParam(value = "name", required = false) String name) {
         List<BookDTO> list = null;
         if (Objects.equals(b, "b1")) {
             list = dao.getList();
@@ -54,5 +57,19 @@ public class BookController {
             model.addAttribute("list", list);
         }
         return "bookPage";
+    }
+
+    @GetMapping("/bookCreate")
+    public String getBookCreateForm() {
+        return "bookCreatePage";
+    }
+
+    @PostMapping("/bookCreate")
+    public String insertBook(Model model, BookDTO bookDTO) {
+        boolean isBookInserted = dao.insertBook(bookDTO);
+        if (isBookInserted) {
+            model.addAttribute("bookDTO", bookDTO);
+        }
+        return "bookCreatePage";
     }
 }

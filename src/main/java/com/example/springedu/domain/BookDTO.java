@@ -15,6 +15,6 @@ public class BookDTO {
 
     @Override
     public String toString() {
-        return id + "번째 책 이름 =" + title + " 가격 = " + price + " 책 종류 = " + BookUtils.convertKind(kind);
+        return "책 이름 =" + title + " 가격 = " + price + " 책 종류 = " + BookUtils.convertKind(kind);
     }
 }

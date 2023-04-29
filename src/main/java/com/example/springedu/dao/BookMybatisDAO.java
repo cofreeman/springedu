@@ -47,4 +47,11 @@ public class BookMybatisDAO {
         return session.selectList(statement);
     }
 
+    public boolean insertBook(BookDTO bookDTO) {
+        boolean result = true;
+        String statement = "lab1.exam8";
+        if(session.insert(statement, bookDTO) != 1)
+            result = false;
+        return result;
+    }
 }

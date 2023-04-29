@@ -1,6 +1,7 @@
 package com.example.springedu;
 
 import javax.sql.DataSource;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.example.springedu","thymeleaf.exam"})
+@MapperScan(value={"com.example.springedu.dao"})
 public class SpringeduApplication {
 
     public static void main(String[] args) {
