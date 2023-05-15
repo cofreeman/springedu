@@ -7,10 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.springedu","thymeleaf.exam"})
-@MapperScan(value={"com.example.springedu.dao"})
+@ComponentScan(basePackages = {"com.example.springedu", "thymeleaf.exam", "springws.exam"})
+@MapperScan(value = {"com.example.springedu.dao"})
+@EnableScheduling
 public class SpringeduApplication {
 
     public static void main(String[] args) {
